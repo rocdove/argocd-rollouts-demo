@@ -5,4 +5,5 @@
 namespace: wp
 image:
   tag: yellow
-  version: v1.2
+  old_version: v1.2
+  version: v1.3
