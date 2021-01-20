@@ -4,6 +4,6 @@
 
 namespace: wp
 image:
-  tag: yellow
+  tag: blue
   old_version: v1.2
   version: v1.3
