@@ -20,10 +20,12 @@ spec:
   selector:
     matchLabels:
       app: rollouts-demo
+      app_version: {{ .Values.image.tag  }}
   template:
     metadata:
       labels:
         app: rollouts-demo
+        app_version: {{ .Values.image.tag  }}
     spec:
       containers:
       - name: rollouts-demo
