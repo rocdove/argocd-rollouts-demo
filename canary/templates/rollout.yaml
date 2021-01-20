@@ -16,16 +16,14 @@ spec:
       - pause: {duration: 10}
       - setWeight: 80
       - pause: {}
-  revisionHistoryLimit: 2
+  revisionHistoryLimit: 5
   selector:
     matchLabels:
       app: rollouts-demo
-      app_version: {{ .Values.image.version  }}
   template:
     metadata:
       labels:
         app: rollouts-demo
-        app_version: {{ .Values.image.version  }}
     spec:
       containers:
       - name: rollouts-demo
