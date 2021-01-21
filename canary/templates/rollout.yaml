@@ -2,11 +2,12 @@ apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
   name: rollouts-demo
-  namespace: {{ .Values.namespace }}
 spec:
   replicas: 5
   strategy:
     canary:
+      canaryService: rollouts-demo-canary
+      stableService: rollouts-demo-stable
       steps:
       - setWeight: 20
       - pause: {}
