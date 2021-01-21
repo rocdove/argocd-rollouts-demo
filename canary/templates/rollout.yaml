@@ -8,6 +8,9 @@ spec:
     canary:
       canaryService: rollouts-demo-canary
       stableService: rollouts-demo-stable
+      trafficRouting:
+        nginx:
+          stableIngress: rollouts-demo-stable
       steps:
       - setWeight: 20
       - pause: {}
