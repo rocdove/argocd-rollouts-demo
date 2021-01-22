@@ -4,4 +4,5 @@
 
 image:
   tag: yellow
+replicas: 3
 

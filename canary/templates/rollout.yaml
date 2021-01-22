@@ -3,7 +3,7 @@ kind: Rollout
 metadata:
   name: demo-rollout
 spec:
-  replicas: 5
+  replicas: {{ .Values.replicas }}
   strategy:
     canary:
       canaryService: canary-service
