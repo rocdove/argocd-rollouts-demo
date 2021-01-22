@@ -1,13 +1,13 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
-  name: rollouts-demo
+  name: demo-rollout
 spec:
   replicas: 5
   strategy:
     canary:
-      canaryService: canary
-      stableService: stable
+      canaryService: canary-service
+      stableService: stable-service
       steps:
       - setWeight: 30
       - pause: {}
@@ -16,14 +16,14 @@ spec:
   revisionHistoryLimit: 3
   selector:
     matchLabels:
-      app: rollouts-demo
+      app: demo-rollout
   template:
     metadata:
       labels:
-        app: rollouts-demo
+        app: demo-rollout
     spec:
       containers:
-      - name: rollouts-demo
+      - name: demo-rollout
         image: argoproj/rollouts-demo:{{ .Values.image.tag }}
         ports:
         - name: http
