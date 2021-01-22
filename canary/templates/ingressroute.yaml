@@ -1,0 +1,18 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: rollout-canary
+spec:
+  entryPoints:
+    - web
+  routes:
+    - match: Host(`canary.yovole.tech`) && PathPrefix(`/`)
+      kind: Rule
+      services:
+        - name: stable
+          port: 80
+    - match: Headers('env', 'canary') && Host(`canary.yovole.tech`) && PathPrefix(`/`)
+      kind: Rule
+      services:
+        - name: canary
+          port: 80
