@@ -11,7 +11,7 @@ spec:
       services:
         - name: stable
           port: 80
-    - match: Headers('env', 'canary') && Host(`canary.yovole.tech`) && PathPrefix(`/`)
+    - match: Headers(`env`, `canary`) && Host(`canary.yovole.tech`) && PathPrefix(`/`)
       kind: Rule
       services:
         - name: canary
